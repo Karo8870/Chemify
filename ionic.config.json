@@ -1,0 +1,7 @@
+{
+  "name": "Chemify",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
