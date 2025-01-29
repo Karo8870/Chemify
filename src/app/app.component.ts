@@ -3,6 +3,11 @@ import { IonApp, IonButton, IonRow } from '@ionic/angular/standalone';
 import { ThemeButtonComponent } from '../components/theme-button/theme-button.component';
 import { NgStyle } from '@angular/common';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Reaction } from '../lib/reactions';
+import { activeCompound, elementModel } from '../lib/models';
+import { PopoverController } from '@ionic/angular';
+import { divalentElements } from '../lib/data';
+import { ChemistryPopoverComponent } from '../components/chemistry-popover/chemistry-popover.component';
 
 @Component({
   selector: 'app-root',
