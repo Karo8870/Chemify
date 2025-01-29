@@ -2,12 +2,33 @@ import { Component } from '@angular/core';
 import { IonApp, IonButton, IonRow } from '@ionic/angular/standalone';
 import { ThemeButtonComponent } from '../components/theme-button/theme-button.component';
 import { NgStyle } from '@angular/common';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrl: 'app.component.scss',
-  imports: [IonApp, IonRow, IonButton, ThemeButtonComponent, NgStyle]
+  imports: [IonApp, IonRow, IonButton, ThemeButtonComponent, NgStyle],
+  animations: [
+    trigger(
+      'tableAnimation',
+      [
+        state(
+          'true',
+          style({
+            top: '0'
+          })
+        ),
+        state(
+          'false',
+          style({
+            top: '100vh'
+          })
+        ),
+        transition('true <=> false', [animate('200ms ease-in-out')])
+      ]
+    )
+  ]
 })
 export class AppComponent {
 
@@ -72,7 +93,7 @@ export class AppComponent {
       x: eventX,
       y: eventY,
       origin: [eventX, eventY]
-    }
+    };
 
     this.compounds.push({
       formula: this.spawn[index],
@@ -103,7 +124,7 @@ export class AppComponent {
 
           if (!result.length) return;
 
-          console.log(result, 1)
+          console.log(result, 1);
 
           const previousOrigin = [this.compounds[this._actionDetails.target].x, this.compounds[this._actionDetails.target].y];
 
@@ -158,7 +179,7 @@ export class AppComponent {
       x: eventX,
       y: eventY,
       origin: [eventX, eventY]
-    }
+    };
   }
 
   updatePt(e: any): any {
@@ -204,7 +225,7 @@ export class AppComponent {
   }
 
   getRange(length: number): number[] {
-    return Array.from({length}, (_, i) => i);
+    return Array.from({ length }, (_, i) => i);
   }
 
   selectActiveElement(element: elementModel) {
