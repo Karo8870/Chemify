@@ -1,7 +1,5 @@
 {
-  "name": "Chemify",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular-standalone"
+  "name": "school-hub",
+  "integrations": {},
+  "type": "angular"
 }
