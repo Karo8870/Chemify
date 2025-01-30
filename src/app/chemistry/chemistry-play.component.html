@@ -11,8 +11,7 @@
                   (mousedown)="compoundMouseDown($event, i)" [attr.x]="compound.x" [attr.y]="compound.y"
                   text-anchor="middle" font-size="64">
                 <tspan *ngFor="let char of toArray(compound.formula)"
-                       [attr.font-size]="isNumber(char) ? '32' : '64'">{{ char }}
-                </tspan>
+                       [attr.font-size]="isNumber(char) ? '32' : '64'">{{ char }}</tspan>
             </text>
         </g>
     </svg>
