@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
 import { IonApp, IonButton, IonRow } from '@ionic/angular/standalone';
 import { ThemeButtonComponent } from '../components/theme-button/theme-button.component';
-import { NgStyle } from '@angular/common';
+import { NgForOf, NgStyle } from '@angular/common';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Reaction } from '../lib/reactions';
 import { activeCompound, elementModel } from '../lib/models';
 import { PopoverController } from '@ionic/angular';
-import { divalentElements } from '../lib/data';
+import { divalentElements, tableElements } from '../lib/data';
 import { ChemistryPopoverComponent } from '../components/chemistry-popover/chemistry-popover.component';
+import { ChemistryCalculationsService } from '../services/calculations.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
+  templateUrl: './app.component.html',
   styleUrl: 'app.component.scss',
-  imports: [IonApp, IonRow, IonButton, ThemeButtonComponent, NgStyle],
+  imports: [IonApp, IonRow, IonButton, ThemeButtonComponent, NgStyle, NgForOf],
   animations: [
     trigger(
       'tableAnimation',
